@@ -7,8 +7,18 @@
 //
 
 #import "HXViewController_home.h"
+#import "HXApiManager.h"
+#import "HXProcessProtocol.h"
+
+@interface HXViewController_home ()
+
+@property (nonatomic ,strong) id <HXProcessProtocol> processedModel;
+
+@end
+
 
 @implementation HXViewController_home
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +40,21 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+//    requestForUrl
+    
+    
+    HXApiManager *mag = [[HXApiManager alloc] init];
+    [mag requestForUrl:@"xxx/api.com" params:nil successBack:^(id obj) {
+        
+        NSDictionary *reformedData = [mag fetchDataWithProcesedModel:self.processedModel];
+        
+    } failBack:^(NSError *error) {
+        
+        
+    }];
+    
+    
     
     
 }
