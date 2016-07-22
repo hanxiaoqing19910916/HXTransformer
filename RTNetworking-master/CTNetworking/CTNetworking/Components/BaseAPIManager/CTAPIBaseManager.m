@@ -115,18 +115,19 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
 {
     NSInteger requestId = 0;
     NSDictionary *apiParams = [self reformParams:params];
+    
+    // shouldCallAPIWithParams 可以进行请求前的拦截
     if ([self shouldCallAPIWithParams:apiParams]) {
+        // 进行参数验证
         if ([self.validator manager:self isCorrectWithParamsData:apiParams]) {
-            
+            // 从本地加载
             if ([self shouldLoadFromNative]) {
                 [self loadDataFromNative];
             }
-            
             // 先检查一下是否有缓存
             if ([self shouldCache] && [self hasCacheWithParams:apiParams]) {
                 return 0;
             }
-            
             // 实际的网络请求
             if ([self isReachable]) {
                 self.isLoading = YES;
@@ -153,11 +154,11 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
                 [self afterCallingAPIWithParams:params];
                 return requestId;
             
-            } else {
+            } else { // 网络不好 请求失败
                 [self failedOnCallingAPI:nil withErrorType:CTAPIManagerErrorTypeNoNetWork];
                 return requestId;
             }
-        } else {
+        } else { // 参数不对 请求失败
             [self failedOnCallingAPI:nil withErrorType:CTAPIManagerErrorTypeParamsError];
             return requestId;
         }

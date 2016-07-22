@@ -11,6 +11,7 @@
 //#import "CTServiceFactory.h"
 #import "CTRequestGenerator.h"
 #import "CTLogger.h"
+#import "CTURLResponse.h"
 #import "NSURLRequest+CTNetworkingMethods.h"
 
 static NSString * const kAXApiProxyDispatchItemKeyCallbackSuccess = @"kAXApiProxyDispatchItemCallbackSuccess";
