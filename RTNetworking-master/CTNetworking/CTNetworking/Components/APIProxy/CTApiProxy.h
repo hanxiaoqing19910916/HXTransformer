@@ -22,7 +22,10 @@ typedef void(^AXCallback)(CTURLResponse *response);
 
 
 - (NSNumber *)callApiWithRequest:(NSURLRequest *)request success:(AXCallback)success fail:(AXCallback)fail;
+
+
 - (void)cancelRequestWithRequestID:(NSNumber *)requestID;
 - (void)cancelRequestWithRequestIDList:(NSArray *)requestIDList;
+
 
 @end

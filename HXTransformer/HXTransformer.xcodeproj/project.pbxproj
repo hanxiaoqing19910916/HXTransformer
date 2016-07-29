@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AB05EC51D46193C001CF37F /* HXResponsResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB05EC41D46193C001CF37F /* HXResponsResult.m */; };
 		8AB1E2071D378EC5006DF1DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB1E2061D378EC5006DF1DC /* ViewController.m */; };
 		8AB1E2311D37A253006DF1DC /* HXViewController_home.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB1E22B1D37A253006DF1DC /* HXViewController_home.m */; };
 		8AB1E2321D37A253006DF1DC /* HXMaker_home.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB1E22E1D37A253006DF1DC /* HXMaker_home.m */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8AB05EC31D46193C001CF37F /* HXResponsResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXResponsResult.h; sourceTree = "<group>"; };
+		8AB05EC41D46193C001CF37F /* HXResponsResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXResponsResult.m; sourceTree = "<group>"; };
 		8AB1E1FC1D378EC5006DF1DC /* HXTransformer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HXTransformer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB1E2051D378EC5006DF1DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8AB1E2061D378EC5006DF1DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 		8AC7A2751D3E125200E0307E /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				8AB05EC31D46193C001CF37F /* HXResponsResult.h */,
+				8AB05EC41D46193C001CF37F /* HXResponsResult.m */,
 				8AC4CD411D4204F6006193B2 /* HXHttpResInterFace.h */,
 				8AC4CD421D4204F6006193B2 /* HXHttpResInterFace.m */,
 				8AC7A28D1D3E1DC400E0307E /* HXProcessProtocol.h */,
@@ -318,6 +323,7 @@
 				8AB1E2491D37A5CC006DF1DC /* HXTransformer.m in Sources */,
 				8AC7A2851D3E126100E0307E /* AFNetworkReachabilityManager.m in Sources */,
 				8AC7A2891D3E126100E0307E /* AFURLSessionManager.m in Sources */,
+				8AB05EC51D46193C001CF37F /* HXResponsResult.m in Sources */,
 				8AC7A28C1D3E12A000E0307E /* HXApiManager.m in Sources */,
 				8AC7A2881D3E126100E0307E /* AFURLResponseSerialization.m in Sources */,
 				8AC4CD431D4204F6006193B2 /* HXHttpResInterFace.m in Sources */,

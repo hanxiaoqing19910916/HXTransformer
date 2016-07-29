@@ -12,8 +12,6 @@
 //        return a + b;
 //    };
 
-
-
 @interface HXApiManager ()
 
 @property (nonatomic,strong) id responseObject;

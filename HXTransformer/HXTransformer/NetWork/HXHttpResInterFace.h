@@ -8,15 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^resultCallBack)(NSURLResponse *response);
+@class HXResponsResult;
+
+typedef void(^resultSuccess)(HXResponsResult *response);
+typedef void(^resultFail)(HXResponsResult *response);
+
 
 @interface HXHttpResInterFace : NSObject
 
 + (instancetype)shareInterface;
 
-- (void)httpGETWithServiceId:(NSString *)serviceId method:(NSString *)method params:(NSDictionary *)params resultCallBack:(resultCallBack) resultCallBack;
+- (NSUInteger)httpGETWithServiceId:(NSString *)serviceId method:(NSString *)method params:(NSDictionary *)params resultCallBackSuccess:(resultSuccess)resultSuccess resultCallBackFail:(resultFail)resultFail;
 
-- (void)httpPOSTWithServiceId:(NSString *)serviceId method:(NSString *)method params:(NSDictionary *)params resultCallBack:(resultCallBack) resultCallBack;
+- (NSUInteger)httpPOSTWithServiceId:(NSString *)serviceId method:(NSString *)method params:(NSDictionary *)params resultCallBackSuccess:(resultSuccess)resultSuccess resultCallBackFail:(resultFail)resultFail;
+
+
+- (void)cancelRequestWithRequestID:(NSNumber *)requestID;
+- (void)cancelRequestsWithIDs:(NSArray *)IDs;
 
 
 @end

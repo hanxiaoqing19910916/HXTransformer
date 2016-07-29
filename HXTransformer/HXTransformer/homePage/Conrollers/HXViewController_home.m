@@ -31,6 +31,9 @@
     [btn setBackgroundColor:[UIColor purpleColor]];
     [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+   
+
 }
 
 
@@ -41,7 +44,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-//    requestForUrl
+    //    requestForUrl
     
     
     HXApiManager *mag = [[HXApiManager alloc] init];

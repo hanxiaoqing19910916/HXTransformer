@@ -65,6 +65,7 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
         
         if ([self conformsToProtocol:@protocol(CTAPIManager)]) {
             self.child = (id <CTAPIManager>)self;
+            NSLog(@"-------------------%@",self.child);
         } else {
             NSException *exception = [[NSException alloc] init];
             @throw exception;
