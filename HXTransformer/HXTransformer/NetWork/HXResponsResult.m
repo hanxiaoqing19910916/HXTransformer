@@ -10,49 +10,34 @@
 
 @implementation HXResponsResult
 
-//+ (instancetype)resultWithTaskID:(NSNumber *)taskID responseObject:(id)respObject request:(NSURLRequest *)request error:(NSError *)error {
-//    
-//    
-//}
 
-
-- (instancetype)initWithTaskID:(NSNumber *)taskID responseObject:(id)respObject request:(NSURLRequest *)request error:(NSError *)error
-{
-    self = [super init];
-    if (self) {
-        _taskID = taskID;
-        _respObject = respObject;
-        _resError = error;
-        _status = [self statusWithError:error];
-        
-    }
-    return self;
++ (instancetype)errorResultWithTaskID:(NSNumber *)taskID request:(NSURLRequest *)request error:(NSError *)error {
+    HXResponsResult *result = [[self alloc] init];
+    [result setValue:taskID forKey:@"taskID"];
+//  [result setValue:request forKey:@"request"];
+     [result setValue:error forKey:@"resError"];
+    result.status = [self statusWithError:error];
+    return result;
 }
 
 
-- (instancetype)initWithTaskID:(NSNumber *)taskID responseObject:(id)respObject request:(NSURLRequest *)request status:(HXResponsStatus)status
-{
-    self = [super init];
-    if (self) {
-        _taskID = taskID;
-        _respObject = respObject;
-        _status = status;
-    }
-    return self;
++ (instancetype)successResultWithTaskID:(NSNumber *)taskID request:(NSURLRequest *)request responseObject:(id)respObject {
+    HXResponsResult *result = [[self alloc] init];
+    [result setValue:taskID forKey:@"taskID"];
+//  [result setValue:request forKey:@"request"];
+    [result setValue:respObject forKey:@"respObject"];
+    result.status = HXResponsStatusSuccess;
+    return result;
 }
 
 
-- (HXResponsStatus)statusWithError:(NSError *)error {
-    if (error) {
-        if (error.code == NSURLErrorTimedOut) {
-            return HXResponsStatusTimeout;
-        } else {
-            return HXResponsStatusErrorNoNetwork;
-        }
++ (HXResponsStatus)statusWithError:(NSError *)error {
+    if (error.code == NSURLErrorTimedOut) {
+        return HXResponsStatusTimeout;
+    } else {
+        return HXResponsStatusErrorNoNetwork;
     }
-    return HXResponsStatusSuccess;
 }
-
 
 
 @end

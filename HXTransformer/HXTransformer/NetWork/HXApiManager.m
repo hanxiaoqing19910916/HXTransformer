@@ -7,46 +7,50 @@
 //
 
 #import "HXApiManager.h"
-#import "AFNetworking.h"
-//    int (^block)(int a, int b) = ^(int a,int b) {
-//        return a + b;
-//    };
 
 @interface HXApiManager ()
 
-@property (nonatomic,strong) id responseObject;
+//@property (nonatomic,strong) id responseObject;
 
 @end
 
 
 @implementation HXApiManager
 
-//successBack:() successBack
-- (void)requestForUrl:(NSString *)urlString params:(NSDictionary *)params successBack:(void(^)(id obj))successBack
-             failBack:(void (^)(NSError *error))failCallBack
-{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    [manager GET:urlString parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        self.responseObject = responseObject;
-        successBack(responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failCallBack(error);
++ (instancetype)manager {
+     return [[self alloc] init];
+}
+
+
+- (void)loadGETwithService:(NSString *)serviceId params:(NSDictionary *)params success:(loadSuccess)resultSuccess fail:(loadFailer)resultFail{
+    
+    
+    // 判断是否先取缓存数据 根据serviceId，取出缓存数据
+    
+    // 判断网络状态（增加网络状态回调，方便外界一些需求：(无网络的时候展示提示检查网络页面)）
+    
+    // 检查参数params 格式（牵扯手机号，邮箱验证等）
+    
+    // params进行签名，排序加密等。。
+    
+    
+    HXHttpResInterFace *httpResInterFace = [HXHttpResInterFace shareInterface];
+    [httpResInterFace httpGETWithURLStr:[[HXUrlService defalutUrlService] urlWithServiceId:serviceId] params:params resultCallBackSuccess:^(HXResponsResult *response) {
+        // 请求成功，根据iscache，判断是否缓存数据 （serviceId为key，value为缓存数据）
+        
+      } resultCallBackFail:^(HXResponsResult *response) {
+        // 请求失败
+        
+        
     }];
-}
-
-
-
-- (NSDictionary *)fetchDataWithProcesedModel:(id<HXProcessProtocol>)procesedModel {
-    
-    if (procesedModel == nil) {
-        return self.responseObject;
-    } else {
-        return [procesedModel processModelWithManager:self];
-    }
     
 }
+
+
+
+
+
+
 
 
 @end

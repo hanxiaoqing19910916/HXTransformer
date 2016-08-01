@@ -18,9 +18,9 @@ typedef void(^resultFail)(HXResponsResult *response);
 
 + (instancetype)shareInterface;
 
-- (NSUInteger)httpGETWithServiceId:(NSString *)serviceId method:(NSString *)method params:(NSDictionary *)params resultCallBackSuccess:(resultSuccess)resultSuccess resultCallBackFail:(resultFail)resultFail;
+- (NSUInteger)httpGETWithURLStr:(NSString *)URLStr params:(NSDictionary *)params resultCallBackSuccess:(resultSuccess)resultSuccess resultCallBackFail:(resultFail)resultFail;
 
-- (NSUInteger)httpPOSTWithServiceId:(NSString *)serviceId method:(NSString *)method params:(NSDictionary *)params resultCallBackSuccess:(resultSuccess)resultSuccess resultCallBackFail:(resultFail)resultFail;
+- (NSUInteger)httpPOSTWithURLStr:(NSString *)URLStr params:(NSDictionary *)params resultCallBackSuccess:(resultSuccess)resultSuccess resultCallBackFail:(resultFail)resultFail;
 
 
 - (void)cancelRequestWithRequestID:(NSNumber *)requestID;

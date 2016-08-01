@@ -28,6 +28,7 @@
 		8AC7A2891D3E126100E0307E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC7A2831D3E126100E0307E /* AFURLSessionManager.m */; };
 		8AC7A28C1D3E12A000E0307E /* HXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC7A28B1D3E12A000E0307E /* HXApiManager.m */; };
 		8AC7A2921D3E215300E0307E /* HXProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC7A2911D3E215300E0307E /* HXProducts.m */; };
+		8AD534E81D4F2B830081AFC9 /* HXUrlService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD534E71D4F2B830081AFC9 /* HXUrlService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,8 @@
 		8AC7A28D1D3E1DC400E0307E /* HXProcessProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXProcessProtocol.h; sourceTree = "<group>"; };
 		8AC7A2901D3E215300E0307E /* HXProducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HXProducts.h; path = HXTransformer/NetWork/HXProducts.h; sourceTree = SOURCE_ROOT; };
 		8AC7A2911D3E215300E0307E /* HXProducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HXProducts.m; path = HXTransformer/NetWork/HXProducts.m; sourceTree = SOURCE_ROOT; };
+		8AD534E61D4F2B830081AFC9 /* HXUrlService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXUrlService.h; sourceTree = "<group>"; };
+		8AD534E71D4F2B830081AFC9 /* HXUrlService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXUrlService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,13 +213,15 @@
 		8AC7A2751D3E125200E0307E /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				8AC7A28D1D3E1DC400E0307E /* HXProcessProtocol.h */,
+				8AC7A28A1D3E12A000E0307E /* HXApiManager.h */,
+				8AC7A28B1D3E12A000E0307E /* HXApiManager.m */,
+				8AD534E61D4F2B830081AFC9 /* HXUrlService.h */,
+				8AD534E71D4F2B830081AFC9 /* HXUrlService.m */,
 				8AB05EC31D46193C001CF37F /* HXResponsResult.h */,
 				8AB05EC41D46193C001CF37F /* HXResponsResult.m */,
 				8AC4CD411D4204F6006193B2 /* HXHttpResInterFace.h */,
 				8AC4CD421D4204F6006193B2 /* HXHttpResInterFace.m */,
-				8AC7A28D1D3E1DC400E0307E /* HXProcessProtocol.h */,
-				8AC7A28A1D3E12A000E0307E /* HXApiManager.h */,
-				8AC7A28B1D3E12A000E0307E /* HXApiManager.m */,
 				8AC7A2761D3E126100E0307E /* AFNetworking */,
 			);
 			path = NetWork;
@@ -326,6 +331,7 @@
 				8AB05EC51D46193C001CF37F /* HXResponsResult.m in Sources */,
 				8AC7A28C1D3E12A000E0307E /* HXApiManager.m in Sources */,
 				8AC7A2881D3E126100E0307E /* AFURLResponseSerialization.m in Sources */,
+				8AD534E81D4F2B830081AFC9 /* HXUrlService.m in Sources */,
 				8AC4CD431D4204F6006193B2 /* HXHttpResInterFace.m in Sources */,
 				8AB1E2451D37A56A006DF1DC /* main.m in Sources */,
 				8AC7A2921D3E215300E0307E /* HXProducts.m in Sources */,

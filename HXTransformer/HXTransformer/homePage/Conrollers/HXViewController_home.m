@@ -9,6 +9,7 @@
 #import "HXViewController_home.h"
 #import "HXApiManager.h"
 #import "HXProcessProtocol.h"
+#import "HXUrlService.h"
 
 @interface HXViewController_home ()
 
@@ -47,18 +48,19 @@
     //    requestForUrl
     
     
-    HXApiManager *mag = [[HXApiManager alloc] init];
-    [mag requestForUrl:@"xxx/api.com" params:nil successBack:^(id obj) {
+    HXApiManager *mag = [HXApiManager manager];
+    [mag loadGETwithService:GET_TIME_SERVICE params:nil success:^(HXResponsResult *response) {
         
-        NSDictionary *reformedData = [mag fetchDataWithProcesedModel:self.processedModel];
         
-    } failBack:^(NSError *error) {
+        
+    } fail:^(HXResponsResult *response) {
         
         
     }];
+
     
-    
-    
+//    NSString *getimeUrl = [[HXUrlService defalutUrlService] urlWithServiceId:GET_TIME_SERVICE];
+//    NSLog(@"%@",getimeUrl);
     
 }
 @end

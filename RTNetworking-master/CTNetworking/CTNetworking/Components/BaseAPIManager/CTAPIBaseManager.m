@@ -121,11 +121,11 @@ NSString * const kBSUserTokenNotificationUserInfoKeyManagerToContinue = @"kBSUse
     if ([self shouldCallAPIWithParams:apiParams]) {
         // 进行参数验证
         if ([self.validator manager:self isCorrectWithParamsData:apiParams]) {
-            // 从本地加载
+            // 从本地存储数据加载
             if ([self shouldLoadFromNative]) {
                 [self loadDataFromNative];
             }
-            // 先检查一下是否有缓存
+            // 先检查一下内存是否有缓存 有就直接返回，不用发起请求更新
             if ([self shouldCache] && [self hasCacheWithParams:apiParams]) {
                 return 0;
             }

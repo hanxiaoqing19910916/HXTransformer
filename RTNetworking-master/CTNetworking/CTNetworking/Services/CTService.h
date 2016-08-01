@@ -26,6 +26,8 @@
 @property (nonatomic, readonly) NSString *onlinePrivateKey;
 @property (nonatomic, readonly) NSString *offlinePrivateKey;
 
+
+
 @end
 
 @interface CTService : NSObject
