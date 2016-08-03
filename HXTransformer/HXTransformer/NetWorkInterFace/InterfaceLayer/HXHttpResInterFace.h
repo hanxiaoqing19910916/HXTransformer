@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  底层网络接口 跟AFNetworking产生关联，作为解耦层。将来更换网络请求框架，就只修改这个类的一些方法
+ */
+
 @class HXResponsResult;
 
 typedef void(^resultSuccess)(HXResponsResult *response);

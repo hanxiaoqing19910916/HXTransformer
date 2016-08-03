@@ -115,7 +115,6 @@
 - (void)failedOnCallingAPI:(HXResponsResult *)response service:(NSString *)serviceId {
     
     self.fail ? self.fail(response) : nil;
-    
 }
 
 
@@ -123,6 +122,9 @@
 - (BOOL)isNetWorkAvailable {
     return [[HXAppInformation sharedInstance] isReachable];
 }
+
+
+
 
 
 /* *本地缓存请求数据 */
