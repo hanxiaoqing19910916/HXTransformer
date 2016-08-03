@@ -8,7 +8,6 @@
 
 #import "HXViewController_home.h"
 #import "HXApiManager.h"
-#import "HXUrlService.h"
 
 
 @interface HXViewController_home ()
