@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /* 这里定义自己公司的请求接口 除去baseurl的部分（@"api/player/getTime"）  */
+
 extern NSString *const GET_TIME_SERVICE;
 extern NSString *const MAIN_PAGE_SERVICE;
 
@@ -21,7 +22,6 @@ extern NSString *const MAIN_PAGE_SERVICE;
 @property (nonatomic,copy) NSString *apiVerson;
 @property (nonatomic,copy) NSString *method;
  */
-
 
 @property (nonatomic,copy) NSString *baseUrl;
 

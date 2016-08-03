@@ -15,7 +15,6 @@ NSString *const MAIN_PAGE_SERVICE = @"api/article/getProjectList";
 
 @implementation HXUrlService
 
-
 + (instancetype)defalutUrlService {
     static HXUrlService *defalutUrlService;
     static dispatch_once_t onceToken;
@@ -25,9 +24,7 @@ NSString *const MAIN_PAGE_SERVICE = @"api/article/getProjectList";
     return defalutUrlService;
 }
 
-
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         _baseUrl = [self generatorBaseUrl];
