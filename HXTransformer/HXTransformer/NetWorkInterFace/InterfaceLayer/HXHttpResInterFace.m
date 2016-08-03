@@ -61,7 +61,7 @@ static NSTimeInterval kCTNetworkingTimeoutSeconds = 20.0f;
  这个模式同样是用证书绑定方式验证，客户端要有服务端的证书拷贝，只是验证时只验证证书里的公钥，不验证证书的有效期等信息。只要公钥是正确的，就能保证通信不会被窃听，因为中间人没有私钥，无法解开通过公钥加密的数据。
  
  整个AFSecurityPolicy就是实现这这几种验证方式，剩下的就是实现细节了，详见源码。
-  原文链接：http://www.jianshu.com/p/5a1b3596f3f7
+ 原文链接：http://www.jianshu.com/p/5a1b3596f3f7
 
  */
 

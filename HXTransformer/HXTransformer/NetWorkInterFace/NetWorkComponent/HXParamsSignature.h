@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-/** 请求参数进行处理  tips:使用者可以根据自己公司的请求加密方案，修改hx_signedParams:params:withKey方法的实现
+/** 
+ 请求参数进行处理  
+ tips:使用者可以根据自己公司的请求加密方案，修改hx_signedParams:params:withKey方法的实现
  */
 @interface HXParamsSignature : NSObject
 
