@@ -118,7 +118,7 @@ static NSTimeInterval kCTNetworkingTimeoutSeconds = 20.0f;
             HXResponsResult *sResult = [HXResponsResult successResultWithTaskID:taskID
                                                                         request:request
                                                                  responseObject:responseObject];
-            resultFail? resultFail(sResult) : nil;
+            resultSuccess? resultSuccess(sResult) : nil;
         }
     }];
     
@@ -140,7 +140,6 @@ static NSTimeInterval kCTNetworkingTimeoutSeconds = 20.0f;
     for (NSNumber *taskId in IDs) {
         [self cancelRequestWithRequestID:taskId];
     }
-    
 }
 
 

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HXProcessProtocol.h"
-@interface HXProducts : NSObject <HXProcessProtocol>
+@interface HXProducts : NSObject 
 
 @end

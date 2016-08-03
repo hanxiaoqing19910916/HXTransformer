@@ -10,13 +10,5 @@
 
 @implementation HXProducts
 
-- (NSDictionary *)processModelWithManager:(HXApiManager *)manager {
-    
-    
-    
-    return nil;
-}
-
-
 
 @end

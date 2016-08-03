@@ -8,12 +8,11 @@
 
 #import "HXViewController_home.h"
 #import "HXApiManager.h"
-#import "HXProcessProtocol.h"
 #import "HXUrlService.h"
+
 
 @interface HXViewController_home ()
 
-@property (nonatomic ,strong) id <HXProcessProtocol> processedModel;
 
 @end
 
@@ -44,23 +43,6 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-    //    requestForUrl
-    
-    
-    HXApiManager *mag = [HXApiManager manager];
-    [mag loadGETwithService:GET_TIME_SERVICE params:nil success:^(HXResponsResult *response) {
-        
-        
-        
-    } fail:^(HXResponsResult *response) {
-        
-        
-    }];
-
-    
-//    NSString *getimeUrl = [[HXUrlService defalutUrlService] urlWithServiceId:GET_TIME_SERVICE];
-//    NSLog(@"%@",getimeUrl);
     
 }
 @end

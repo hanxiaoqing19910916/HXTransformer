@@ -8,7 +8,7 @@
 
 #import "NSString+AXNetworkingMethods.h"
 #include <CommonCrypto/CommonDigest.h>
-#import "NSObject+AXNetworkingMethods.h"
+//#import "NSObject+AXNetworkingMethods.h"
 
 @implementation NSString (AXNetworkingMethods)
 

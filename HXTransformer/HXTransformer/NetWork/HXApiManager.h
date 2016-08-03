@@ -10,14 +10,9 @@
 #import "HXResponsResult.h"
 #import "HXUrlService.h"
 #import "HXHttpResInterFace.h"
+#import "HXAppInformation.h"
+#import "HXParamsSignature.h"
 
-//#import "HXProcessProtocol.h"
-
-
-typedef NS_ENUM(NSInteger,ApiMethod) {
-    ApiMethodGET,
-    ApiMethodPOST
-};
 
 typedef void(^loadSuccess)(HXResponsResult *response);
 typedef void(^loadFailer)(HXResponsResult *response);
@@ -35,7 +30,7 @@ typedef void(^loadFailer)(HXResponsResult *response);
 
 - (void)loadGETwithService:(NSString *)serviceId params:(NSDictionary *)params success:(loadSuccess)resultSuccess fail:(loadFailer)resultFail;
 
-//- (void)loadPOST
+- (void)loadPOSTwithService:(NSString *)serviceId params:(NSDictionary *)params success:(loadSuccess)resultSuccess fail:(loadFailer)resultFail;
 
 
 @end

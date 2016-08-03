@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger,HXResponsStatus) {
-    HXResponsStatusSuccess, //作为底层，请求是否成功只考虑是否成功收到服务器反馈。至于签名是否正确，返回的数据是否完整，由上层决定。
-    HXResponsStatusTimeout,
-    HXResponsStatusErrorNoNetwork // 默认除了超时以外的错误都是无网络错误。
+    HXResponsStatusSuccess, //成功收到服务器响应
+    HXResponsStatusTimeout, //超时
+    HXResponsStatusErrorNoNetwork, // 默认除了超时以外的错误都是无网络错误。
+    HXResponsStatusDiskCacheData // 成功返回的是本地磁盘的数据
 };
 
 @interface HXResponsResult : NSObject
