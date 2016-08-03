@@ -40,18 +40,28 @@
     [self presentViewController:homePageVc animated:YES completion:nil];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
 
+
+- (IBAction)requestAction:(id)sender {
     HXApiManager *mag = [HXApiManager manager];
     NSDictionary *dic = @{@"app":@"zyx",};
     [mag loadGETwithService:MAIN_PAGE_SERVICE params:dic success:^(HXResponsResult *response) {
         
         
+        NSLog(@"%@",response.json_obj);
+        
         
     } fail:^(HXResponsResult *response) {
         
     }];
+    
+    
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+
     
 }
 

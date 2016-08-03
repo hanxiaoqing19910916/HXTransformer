@@ -39,5 +39,15 @@
     }
 }
 
+- (id)json_obj {
+    if ([_respObject isKindOfClass:[NSString class]]) {
+        return [NSJSONSerialization JSONObjectWithData:[((NSString *)_respObject) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+    } else if ([_respObject isKindOfClass:[NSData class]]) {
+        return [NSJSONSerialization JSONObjectWithData:(NSData *)_respObject options:kNilOptions error:nil];
+    }
+    return nil;
+}
+
+
 
 @end

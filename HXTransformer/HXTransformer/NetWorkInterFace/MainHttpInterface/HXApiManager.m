@@ -120,9 +120,7 @@
 
 
 
-
 - (BOOL)isNetWorkAvailable {
-    
     return [[HXAppInformation sharedInstance] isReachable];
 }
 
@@ -137,6 +135,7 @@
 {
     
 }
+
 
 
 - (void)dealloc {
