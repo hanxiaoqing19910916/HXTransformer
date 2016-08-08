@@ -8,7 +8,7 @@
 
 #import "HXViewController_home.h"
 #import "HXApiManager.h"
-
+#import <objc/runtime.h>
 
 @interface HXViewController_home ()
 
@@ -31,14 +31,41 @@
     [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
-   
+    
+
+
 
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+//    unsigned int count = 0;
+//    Ivar *ivars = class_copyIvarList(NSClassFromString(@"UINavigationItemButtonView"), &count);
+//    for (int index = 0;index < count -1;index ++) {
+//        Ivar ivar = ivars[index];
+//        NSLog(@"%s" ,ivar_getName(ivar));
+//    };
+    
+     NSLog(@"%@",self.navigationController.navigationItem);
+    
+    
+    
+//    for (UIView *childview in self.navigationController.navigationBar.subviews) {
+//        if ([childview isKindOfClass:NSClassFromString(@"UINavigationItemButtonView")]) {
+//            for (UIView *itemButtonViewChild in childview.subviews) {
+//                NSLog(@"%@",[itemButtonViewChild valueForKey:@"font"]);
+//            }
+//        }
+//    }
+//    
+    
+    
+}
 
 
 - (void)back {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
