@@ -12,8 +12,6 @@
 
 - (UIViewController *)giveHomeVc;
 
-
-
-
+- (void)test_no_return_func;
 
 @end

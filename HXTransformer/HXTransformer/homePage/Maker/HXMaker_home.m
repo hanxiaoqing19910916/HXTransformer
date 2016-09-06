@@ -16,5 +16,7 @@
 }
 
 
-
+- (void)no_return_func {
+    NSLog(@"执行了一个没有返回值的方法");
+}
 @end

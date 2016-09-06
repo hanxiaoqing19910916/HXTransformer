@@ -13,5 +13,5 @@
 
 - (UIViewController *)homeVc;
 
-
+- (void)no_return_func;
 @end

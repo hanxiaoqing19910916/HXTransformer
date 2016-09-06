@@ -47,7 +47,7 @@
 //        NSLog(@"%s" ,ivar_getName(ivar));
 //    };
     
-     NSLog(@"%@",self.navigationController.navigationItem);
+//     NSLog(@"%@",self.navigationController.navigationItem);
     
     
     

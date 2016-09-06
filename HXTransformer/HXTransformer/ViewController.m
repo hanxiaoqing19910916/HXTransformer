@@ -56,8 +56,16 @@
 
 - (IBAction)jumpVc:(id)sender {
     
+    
+    
+    
+    
+    
     HXTransformer *transformer = [HXTransformer shareInstance];
     UIViewController *homePageVc = [transformer giveHomeVc];
+    
+    [transformer test_no_return_func];
+    
     [self.navigationController pushViewController:homePageVc animated:YES];
 }
 
