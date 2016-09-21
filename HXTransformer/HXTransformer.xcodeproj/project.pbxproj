@@ -76,6 +76,7 @@
 		8AB1E23F1D37A56A006DF1DC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8AB1E2471D37A5CC006DF1DC /* HXTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXTransformer.h; sourceTree = "<group>"; };
 		8AB1E2481D37A5CC006DF1DC /* HXTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXTransformer.m; sourceTree = "<group>"; };
+		8AB54AF91D9233C200D1BDE0 /* UsefulDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsefulDefines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +181,7 @@
 		8AB1E1FE1D378EC5006DF1DC /* HXTransformer */ = {
 			isa = PBXGroup;
 			children = (
+				8AB54AF81D92318C00D1BDE0 /* UsefulDefines */,
 				8AA4D92A1D51F860003FE028 /* NetWorkInterFace */,
 				8AB1E2461D37A5CC006DF1DC /* GobelTransformer */,
 				8AB1E21F1D379EA8006DF1DC /* homePage */,
@@ -281,6 +283,14 @@
 				8AB1E2481D37A5CC006DF1DC /* HXTransformer.m */,
 			);
 			path = GobelTransformer;
+			sourceTree = "<group>";
+		};
+		8AB54AF81D92318C00D1BDE0 /* UsefulDefines */ = {
+			isa = PBXGroup;
+			children = (
+				8AB54AF91D9233C200D1BDE0 /* UsefulDefines.h */,
+			);
+			path = UsefulDefines;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

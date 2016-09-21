@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "HXTransformer+HomePage.h"
 #import "HXApiManager.h"
+#import "UsefulDefines.h"
 
 @interface ViewController ()
 
