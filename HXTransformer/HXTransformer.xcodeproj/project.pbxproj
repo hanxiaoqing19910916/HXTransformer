@@ -35,6 +35,11 @@
 		8AB54B0A1D92384F00D1BDE0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB54B091D92384F00D1BDE0 /* SystemConfiguration.framework */; };
 		8AB54B0C1D92386300D1BDE0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB54B0B1D92386300D1BDE0 /* CoreTelephony.framework */; };
 		8AB54B0E1D9238C100D1BDE0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB54B0D1D9238C100D1BDE0 /* Security.framework */; };
+		8AB54B211D923A9800D1BDE0 /* NSArray+ToFormatString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54B181D923A9800D1BDE0 /* NSArray+ToFormatString.m */; };
+		8AB54B221D923A9800D1BDE0 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54B1A1D923A9800D1BDE0 /* NSDate+Extension.m */; };
+		8AB54B231D923A9800D1BDE0 /* NSDictionary+OrderedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54B1C1D923A9800D1BDE0 /* NSDictionary+OrderedString.m */; };
+		8AB54B241D923A9800D1BDE0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54B1E1D923A9800D1BDE0 /* NSString+Extension.m */; };
+		8AB54B251D923A9800D1BDE0 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54B201D923A9800D1BDE0 /* UIView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +94,16 @@
 		8AB54B091D92384F00D1BDE0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8AB54B0B1D92386300D1BDE0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8AB54B0D1D9238C100D1BDE0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8AB54B171D923A9800D1BDE0 /* NSArray+ToFormatString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ToFormatString.h"; sourceTree = "<group>"; };
+		8AB54B181D923A9800D1BDE0 /* NSArray+ToFormatString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ToFormatString.m"; sourceTree = "<group>"; };
+		8AB54B191D923A9800D1BDE0 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		8AB54B1A1D923A9800D1BDE0 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		8AB54B1B1D923A9800D1BDE0 /* NSDictionary+OrderedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+OrderedString.h"; sourceTree = "<group>"; };
+		8AB54B1C1D923A9800D1BDE0 /* NSDictionary+OrderedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+OrderedString.m"; sourceTree = "<group>"; };
+		8AB54B1D1D923A9800D1BDE0 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		8AB54B1E1D923A9800D1BDE0 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		8AB54B1F1D923A9800D1BDE0 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		8AB54B201D923A9800D1BDE0 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +214,7 @@
 		8AB1E1FE1D378EC5006DF1DC /* HXTransformer */ = {
 			isa = PBXGroup;
 			children = (
+				8AB54B161D923A9800D1BDE0 /* UsefulCategories */,
 				8AB54AFA1D92365200D1BDE0 /* DeviceInformation */,
 				8AB54AF81D92318C00D1BDE0 /* UsefulDefines */,
 				8AA4D92A1D51F860003FE028 /* NetWorkInterFace */,
@@ -331,6 +347,23 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		8AB54B161D923A9800D1BDE0 /* UsefulCategories */ = {
+			isa = PBXGroup;
+			children = (
+				8AB54B171D923A9800D1BDE0 /* NSArray+ToFormatString.h */,
+				8AB54B181D923A9800D1BDE0 /* NSArray+ToFormatString.m */,
+				8AB54B191D923A9800D1BDE0 /* NSDate+Extension.h */,
+				8AB54B1A1D923A9800D1BDE0 /* NSDate+Extension.m */,
+				8AB54B1B1D923A9800D1BDE0 /* NSDictionary+OrderedString.h */,
+				8AB54B1C1D923A9800D1BDE0 /* NSDictionary+OrderedString.m */,
+				8AB54B1D1D923A9800D1BDE0 /* NSString+Extension.h */,
+				8AB54B1E1D923A9800D1BDE0 /* NSString+Extension.m */,
+				8AB54B1F1D923A9800D1BDE0 /* UIView+Extension.h */,
+				8AB54B201D923A9800D1BDE0 /* UIView+Extension.m */,
+			);
+			path = UsefulCategories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -406,13 +439,18 @@
 			files = (
 				8AB1E2071D378EC5006DF1DC /* ViewController.m in Sources */,
 				8AA4D9251D51F81E003FE028 /* AFNetworkReachabilityManager.m in Sources */,
+				8AB54B251D923A9800D1BDE0 /* UIView+Extension.m in Sources */,
 				8AA4D93B1D51F860003FE028 /* HXAppInformation.m in Sources */,
+				8AB54B211D923A9800D1BDE0 /* NSArray+ToFormatString.m in Sources */,
 				8AA4D93E1D51F860003FE028 /* HXUrlService.m in Sources */,
+				8AB54B231D923A9800D1BDE0 /* NSDictionary+OrderedString.m in Sources */,
 				8AB1E2311D37A253006DF1DC /* HXViewController_home.m in Sources */,
 				8AB1E2321D37A253006DF1DC /* HXMaker_home.m in Sources */,
 				8AB1E2351D37A27C006DF1DC /* HXTransformer+HomePage.m in Sources */,
 				8AB1E2491D37A5CC006DF1DC /* HXTransformer.m in Sources */,
+				8AB54B241D923A9800D1BDE0 /* NSString+Extension.m in Sources */,
 				8AA4D93C1D51F860003FE028 /* HXHttpResInterFace.m in Sources */,
+				8AB54B221D923A9800D1BDE0 /* NSDate+Extension.m in Sources */,
 				8AA4D9401D51F860003FE028 /* HXResponsResult.m in Sources */,
 				8AA4D9261D51F81E003FE028 /* AFSecurityPolicy.m in Sources */,
 				8AB54AFD1D92365A00D1BDE0 /* BTDeviceInfo.m in Sources */,
