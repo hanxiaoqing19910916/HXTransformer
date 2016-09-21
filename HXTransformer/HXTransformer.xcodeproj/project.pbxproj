@@ -30,6 +30,11 @@
 		8AB1E2441D37A56A006DF1DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB1E23E1D37A56A006DF1DC /* Info.plist */; };
 		8AB1E2451D37A56A006DF1DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB1E23F1D37A56A006DF1DC /* main.m */; };
 		8AB1E2491D37A5CC006DF1DC /* HXTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB1E2481D37A5CC006DF1DC /* HXTransformer.m */; };
+		8AB54AFD1D92365A00D1BDE0 /* BTDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54AFC1D92365A00D1BDE0 /* BTDeviceInfo.m */; };
+		8AB54B081D92369D00D1BDE0 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54B051D92369D00D1BDE0 /* Reachability.m */; };
+		8AB54B0A1D92384F00D1BDE0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB54B091D92384F00D1BDE0 /* SystemConfiguration.framework */; };
+		8AB54B0C1D92386300D1BDE0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB54B0B1D92386300D1BDE0 /* CoreTelephony.framework */; };
+		8AB54B0E1D9238C100D1BDE0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB54B0D1D9238C100D1BDE0 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +82,13 @@
 		8AB1E2471D37A5CC006DF1DC /* HXTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXTransformer.h; sourceTree = "<group>"; };
 		8AB1E2481D37A5CC006DF1DC /* HXTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXTransformer.m; sourceTree = "<group>"; };
 		8AB54AF91D9233C200D1BDE0 /* UsefulDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UsefulDefines.h; sourceTree = "<group>"; };
+		8AB54AFB1D92365A00D1BDE0 /* BTDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDeviceInfo.h; sourceTree = "<group>"; };
+		8AB54AFC1D92365A00D1BDE0 /* BTDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDeviceInfo.m; sourceTree = "<group>"; };
+		8AB54B041D92369D00D1BDE0 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8AB54B051D92369D00D1BDE0 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8AB54B091D92384F00D1BDE0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8AB54B0B1D92386300D1BDE0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8AB54B0D1D9238C100D1BDE0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +96,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AB54B0E1D9238C100D1BDE0 /* Security.framework in Frameworks */,
+				8AB54B0C1D92386300D1BDE0 /* CoreTelephony.framework in Frameworks */,
+				8AB54B0A1D92384F00D1BDE0 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +180,9 @@
 		8AB1E1F31D378EC5006DF1DC = {
 			isa = PBXGroup;
 			children = (
+				8AB54B0D1D9238C100D1BDE0 /* Security.framework */,
+				8AB54B0B1D92386300D1BDE0 /* CoreTelephony.framework */,
+				8AB54B091D92384F00D1BDE0 /* SystemConfiguration.framework */,
 				8AB1E1FE1D378EC5006DF1DC /* HXTransformer */,
 				8AB1E1FD1D378EC5006DF1DC /* Products */,
 			);
@@ -181,6 +199,7 @@
 		8AB1E1FE1D378EC5006DF1DC /* HXTransformer */ = {
 			isa = PBXGroup;
 			children = (
+				8AB54AFA1D92365200D1BDE0 /* DeviceInformation */,
 				8AB54AF81D92318C00D1BDE0 /* UsefulDefines */,
 				8AA4D92A1D51F860003FE028 /* NetWorkInterFace */,
 				8AB1E2461D37A5CC006DF1DC /* GobelTransformer */,
@@ -293,6 +312,25 @@
 			path = UsefulDefines;
 			sourceTree = "<group>";
 		};
+		8AB54AFA1D92365200D1BDE0 /* DeviceInformation */ = {
+			isa = PBXGroup;
+			children = (
+				8AB54B031D92369D00D1BDE0 /* Reachability */,
+				8AB54AFB1D92365A00D1BDE0 /* BTDeviceInfo.h */,
+				8AB54AFC1D92365A00D1BDE0 /* BTDeviceInfo.m */,
+			);
+			path = DeviceInformation;
+			sourceTree = "<group>";
+		};
+		8AB54B031D92369D00D1BDE0 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				8AB54B041D92369D00D1BDE0 /* Reachability.h */,
+				8AB54B051D92369D00D1BDE0 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -377,9 +415,11 @@
 				8AA4D93C1D51F860003FE028 /* HXHttpResInterFace.m in Sources */,
 				8AA4D9401D51F860003FE028 /* HXResponsResult.m in Sources */,
 				8AA4D9261D51F81E003FE028 /* AFSecurityPolicy.m in Sources */,
+				8AB54AFD1D92365A00D1BDE0 /* BTDeviceInfo.m in Sources */,
 				8AA4D9271D51F81E003FE028 /* AFURLRequestSerialization.m in Sources */,
 				8AB1E2451D37A56A006DF1DC /* main.m in Sources */,
 				8AB1E2401D37A56A006DF1DC /* AppDelegate.m in Sources */,
+				8AB54B081D92369D00D1BDE0 /* Reachability.m in Sources */,
 				8AA4D9281D51F81E003FE028 /* AFURLResponseSerialization.m in Sources */,
 				8AA4D9291D51F81E003FE028 /* AFURLSessionManager.m in Sources */,
 				8AA4D93D1D51F860003FE028 /* HXApiManager.m in Sources */,
