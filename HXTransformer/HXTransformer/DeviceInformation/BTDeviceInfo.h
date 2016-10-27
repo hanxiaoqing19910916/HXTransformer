@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-/***   导入 CoreTelephony.framework SystemConfiguration.framework  Security.framework */
+/**导入 CoreTelephony.framework SystemConfiguration.framework  Security.framework MobileCoreServices.framework */
 
 @interface BTDeviceInfo : NSObject
 

@@ -40,6 +40,7 @@
 		8AB54B231D923A9800D1BDE0 /* NSDictionary+OrderedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54B1C1D923A9800D1BDE0 /* NSDictionary+OrderedString.m */; };
 		8AB54B241D923A9800D1BDE0 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54B1E1D923A9800D1BDE0 /* NSString+Extension.m */; };
 		8AB54B251D923A9800D1BDE0 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB54B201D923A9800D1BDE0 /* UIView+Extension.m */; };
+		8AD9FDFF1DC1DF0C00FBDFC6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD9FDFE1DC1DF0C00FBDFC6 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		8AB54B1E1D923A9800D1BDE0 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		8AB54B1F1D923A9800D1BDE0 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		8AB54B201D923A9800D1BDE0 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		8AD9FDFE1DC1DF0C00FBDFC6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD9FDFF1DC1DF0C00FBDFC6 /* MobileCoreServices.framework in Frameworks */,
 				8AB54B0E1D9238C100D1BDE0 /* Security.framework in Frameworks */,
 				8AB54B0C1D92386300D1BDE0 /* CoreTelephony.framework in Frameworks */,
 				8AB54B0A1D92384F00D1BDE0 /* SystemConfiguration.framework in Frameworks */,
@@ -200,6 +203,7 @@
 				8AB54B091D92384F00D1BDE0 /* SystemConfiguration.framework */,
 				8AB1E1FE1D378EC5006DF1DC /* HXTransformer */,
 				8AB1E1FD1D378EC5006DF1DC /* Products */,
+				8AD9FDFD1DC1DF0C00FBDFC6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -331,6 +335,7 @@
 		8AB54AFA1D92365200D1BDE0 /* DeviceInformation */ = {
 			isa = PBXGroup;
 			children = (
+				8AD9FE001DC1DFAB00FBDFC6 /* KeyChainTool */,
 				8AB54B031D92369D00D1BDE0 /* Reachability */,
 				8AB54AFB1D92365A00D1BDE0 /* BTDeviceInfo.h */,
 				8AB54AFC1D92365A00D1BDE0 /* BTDeviceInfo.m */,
@@ -362,6 +367,21 @@
 				8AB54B201D923A9800D1BDE0 /* UIView+Extension.m */,
 			);
 			path = UsefulCategories;
+			sourceTree = "<group>";
+		};
+		8AD9FDFD1DC1DF0C00FBDFC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AD9FDFE1DC1DF0C00FBDFC6 /* MobileCoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8AD9FE001DC1DFAB00FBDFC6 /* KeyChainTool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = KeyChainTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

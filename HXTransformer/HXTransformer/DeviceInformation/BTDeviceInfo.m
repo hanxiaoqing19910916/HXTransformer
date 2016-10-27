@@ -239,6 +239,8 @@
     if ([platform isEqualToString:@"iPhone7,2"]) return @"iPhone 6 (A1549/A1586)";
     if ([platform isEqualToString:@"iPhone8,1"]) return @"iPhone 6s ";
     if ([platform isEqualToString:@"iPhone8,2"]) return @"iPhone 6s Plus";
+    if ([platform isEqualToString:@"iPhone9,1"]) return @"iPhone 7";
+    if ([platform isEqualToString:@"iPhone9,2"]) return @"iPhone 7 Plus";
     
     if ([platform isEqualToString:@"iPod1,1"])   return @"iPod Touch 1G (A1213)";
     if ([platform isEqualToString:@"iPod2,1"])   return @"iPod Touch 2G (A1288)";
