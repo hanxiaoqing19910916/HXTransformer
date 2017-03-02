@@ -29,6 +29,11 @@
 /** ipd地址 */
 @property (copy, nonatomic,readonly) NSString *ipAddress;
 
+/** 设备唯一id deviceUuid */
+@property (copy, nonatomic,readonly) NSString *deviceUuid;
+
+/** 当前时间戳 */
+@property (copy, nonatomic,readonly) NSString *nowUnixTime;
 
 /** 是否越狱
 @property (assign, nonatomic) BOOL isJailbroken;

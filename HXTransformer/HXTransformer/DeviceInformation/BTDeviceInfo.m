@@ -74,6 +74,16 @@
     
 }
 
+- (NSString *)deviceUuid
+{
+    return [self.class getDeviceUuid];
+}
+
+- (NSString *)nowUnixTime
+{
+    return [self.class logCreateUnixTime];
+}
+
 #warning 获取uuid
 + (NSString *)getDeviceUuid {
     return @"uuid";
