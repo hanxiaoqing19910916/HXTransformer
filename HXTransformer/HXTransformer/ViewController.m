@@ -29,12 +29,9 @@
     }];
     
     
-    
-  BTDeviceInfo *dinfo = [BTDeviceInfo currentDevInfo];
-    
+    BTDeviceInfo *dinfo = [BTDeviceInfo currentDevInfo];
     NSLog(@"%@----%@----%@----%@----%@----%@",dinfo.Model,dinfo.Resolution,dinfo.OS,dinfo.NetMode,dinfo.Operator,dinfo.ipAddress);
-    
-    
+
 }
 
 - (IBAction)jumpVc:(id)sender {
@@ -58,10 +55,9 @@
     
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
 
-    
 }
 
 
