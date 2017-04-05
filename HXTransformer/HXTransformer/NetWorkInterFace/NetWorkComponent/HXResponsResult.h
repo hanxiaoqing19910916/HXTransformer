@@ -29,6 +29,9 @@ typedef NS_ENUM(NSInteger,HXResponsStatus) {
 /** 进行json解析后的结果 */
 @property (nonatomic,strong,readonly) id json_obj;
 
+/** 缓存的json 字典数据*/
+@property (nonatomic,strong) NSDictionary *cacheResponesDic;
+
 /** 错误 */
 @property (nonatomic,strong,readonly) NSError *resError;
 

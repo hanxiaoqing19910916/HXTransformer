@@ -40,6 +40,9 @@
 }
 
 - (id)json_obj {
+    if (self.cacheResponesDic) {
+        return self.cacheResponesDic;
+    }
     if ([_respObject isKindOfClass:[NSString class]]) {
         return [NSJSONSerialization JSONObjectWithData:[((NSString *)_respObject) dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
     } else if ([_respObject isKindOfClass:[NSData class]]) {

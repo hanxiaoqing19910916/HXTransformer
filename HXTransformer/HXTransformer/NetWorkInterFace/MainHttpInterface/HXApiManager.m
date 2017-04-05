@@ -7,16 +7,16 @@
 //
 
 #import "HXApiManager.h"
+#import "YYCache.h"
 
 
 #define HXCallAPI(REQUEST_METHOD)                                                                \
 {                                                                                                \
-    NSString *url = [[HXUrlService defalutUrlService] urlWithServiceId:serviceId];               \
    [[HXHttpResInterFace shareInterface] http##REQUEST_METHOD##WithURLStr:url params:processedDic \
         resultCallBackSuccess:^(HXResponsResult *response) {                                     \
-        [self successedOnCallingAPI:response service:serviceId];                                 \
+        [self successedOnCallingAPI:response key:cacheKey];                                 \
      } resultCallBackFail:^(HXResponsResult *response) {                                         \
-        [self failedOnCallingAPI:response service:serviceId];                                    \
+        [self failedOnCallingAPI:response];                                    \
     }];                                                                                          \
 }
 
@@ -26,23 +26,49 @@
 @property (nonatomic,copy) loadSuccess success;
 @property (nonatomic,copy) loadFailer fail;
 
+@property (nonatomic,strong) YYCache *responseCache;
+
+
 @end
 
 
 @implementation HXApiManager
+
+
 
 + (instancetype)manager {
      return [[self alloc] init];
 }
 
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *cachePath = [paths objectAtIndex:0];
+        self.responseCache = [[YYCache alloc] initWithPath:cachePath];
+    }
+    return self;
+}
+
+- (YYCache *)currentUsedCache
+{
+    if (self.responseCache) return self.responseCache;
+    return nil;
+}
+
 - (void)loadGETwithService:(NSString *)serviceId params:(NSDictionary *)params success:(loadSuccess)resultSuccess fail:(loadFailer)resultFail {
     
     self.success = resultSuccess;
     self.fail = resultFail;
     
+    NSString *url = self.urlStirng;
+    
     // 缓存处理 以及网络判断
-    if ([self beginRequestWithService:serviceId]) {
+    NSString *cacheKey = [HXParamsSignature generateOnlyKeyOfUrl:url param:params];
+    // 缓存处理 以及网络判断
+    if ([self beginRequestWithKey:cacheKey]) {
         return;
     }
     // 检查参数params 格式（牵扯手机号，邮箱验证等） 签名，排序加密等处理
@@ -58,27 +84,31 @@
     self.success = resultSuccess;
     self.fail = resultFail;
     
+    NSString *url = self.urlStirng;
+    
     // 缓存处理 以及网络判断
-    if ([self beginRequestWithService:serviceId]) {
+    NSString *cacheKey = [HXParamsSignature generateOnlyKeyOfUrl:url param:params];
+    
+    if ([self beginRequestWithKey:cacheKey]) {
         return;
     }
     // 检查参数params 格式（牵扯手机号，邮箱验证等） 签名，排序加密等处理
     NSDictionary *processedDic = [self processedParams:params];
-
+    
     // 开始正式的网络请求
     HXCallAPI(POST);
     
 }
 
 - (NSDictionary *)processedParams:(NSDictionary *)orignParams {
-    
-    return [HXParamsSignature hx_signedParams:orignParams withKey:@"grl3afaf8aflf21034e1efeio"];
+    if (!orignParams) return nil;
+    return [HXParamsSignature  hx_signedParams:orignParams withKey:[ZYXSDK getInstance].configure.appkey];
 }
 
 
 
-- (BOOL)beginRequestWithService:(NSString *)serviceId {
-
+- (BOOL)beginRequestWithKey:(NSString *)key  {
+    
     // 判断网络状态
     if (![self isNetWorkAvailable]) {
         
@@ -87,32 +117,37 @@
         
         
         //网络不好的情况下 判断是否先取缓存数据 根据serviceId，取出缓存数据
-        if (self.isNativecache) {
-            HXResponsResult *response = [self responesForService:serviceId];
+        if (self.usingCache) {
+            HXResponsResult *response = [[HXResponsResult alloc] init];
+            NSDictionary *resDic = [self cachedResultForKey:key];
+            if (!resDic) { // 没有可用的缓存数据
+//                [MBProgressHUD showError:@"没有可用数据!请检查网络!"];
+                response.status = HXResponsStatusErrorNoNetwork;
+                self.fail ? self.fail(response) : nil;
+                return YES;
+            }
+//            [MBProgressHUD showError:@"网络异常,请检查网络!"];
             response.status = HXResponsStatusDiskCacheData;
+            response.cacheResponesDic = resDic;
             self.success ? self.success(response) : nil;
             return YES;
         }
-        
-        HXResponsResult *response = [[HXResponsResult alloc] init];
-        response.status = HXResponsStatusErrorNoNetwork;
-        self.fail ? self.fail(response) : nil;
-        return YES;
     }
     return NO;
 }
 
 
 
-- (void)successedOnCallingAPI:(HXResponsResult *)response service:(NSString *)serviceId {
+- (void)successedOnCallingAPI:(HXResponsResult *)response key:(NSString *)key {
     
-    if (self.isNativecache) {
-        [self cacheRespones:response forService:serviceId];
+    if (self.usingCache) {
+        [self cacheResult:response.json_obj forKey:key];
     }
     self.success ? self.success(response) : nil;
 }
 
-- (void)failedOnCallingAPI:(HXResponsResult *)response service:(NSString *)serviceId {
+
+- (void)failedOnCallingAPI:(HXResponsResult *)response {
     
     self.fail ? self.fail(response) : nil;
 }
@@ -128,21 +163,17 @@
 
 
 /* *本地缓存请求数据 */
-- (HXResponsResult *)responesForService:(NSString *)serviceId
+- (NSDictionary *)cachedResultForKey:(NSString *)key
 {
-    return nil;
+    return (NSDictionary *)[self.responseCache objectForKey:key];
 }
 
-- (void)cacheRespones:(HXResponsResult *)response forService:(NSString *)serviceId
+- (void)cacheResult:(NSDictionary *)result forKey:(NSString *)key
 {
-    
+    [self.responseCache setObject:result forKey:key];
 }
 
 
-- (void)dealloc {
-    
-    
-}
 
 
 @end

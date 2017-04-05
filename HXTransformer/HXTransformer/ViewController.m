@@ -21,20 +21,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    HXApiManager *mag = [HXApiManager manager];
-    [mag loadGETwithService:GET_TIME_SERVICE params:nil success:^(HXResponsResult *response) {
-        // 记录服务器时间 得出时间差
-        [HXAppInformation recordServerDiffTime:response.respObject];
-    } fail:^(HXResponsResult *response) {
-    }];
-    
-    
-    BTDeviceInfo *dinfo = [BTDeviceInfo currentDevInfo];
-    NSLog(@"%@----%@----%@----%@----%@----%@",dinfo.Model,dinfo.Resolution,dinfo.OS,dinfo.NetMode,dinfo.Operator,dinfo.ipAddress);
+//    HXApiManager *mag = [HXApiManager manager];
+//    [mag loadGETwithService:GET_TIME_SERVICE params:nil success:^(HXResponsResult *response) {
+//        // 记录服务器时间 得出时间差
+//        [HXAppInformation recordServerDiffTime:response.respObject];
+//    } fail:^(HXResponsResult *response) {
+//    }];
+//    
+//    
+//    BTDeviceInfo *dinfo = [BTDeviceInfo currentDevInfo];
+//    NSLog(@"%@----%@----%@----%@----%@----%@",dinfo.Model,dinfo.Resolution,dinfo.OS,dinfo.NetMode,dinfo.Operator,dinfo.ipAddress);
 
 }
 
-- (IBAction)jumpVc:(id)sender {
+- (IBAction)jumpVc:(id)sender
+{
     HXTransformer *transformer = [HXTransformer shareInstance];
     UIViewController *homePageVc = [transformer giveHomeVc];
     [transformer test_no_return_func];
@@ -43,7 +44,8 @@
 
 
 
-- (IBAction)requestAction:(id)sender {
+- (IBAction)requestAction:(id)sender
+{
     HXApiManager *mag = [HXApiManager manager];
     NSDictionary *dic = @{@"app":@"zyx"};
     [mag loadGETwithService:MAIN_PAGE_SERVICE params:dic success:^(HXResponsResult *response) {
@@ -51,8 +53,6 @@
     } fail:^(HXResponsResult *response) {
         
     }];
-    
-    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

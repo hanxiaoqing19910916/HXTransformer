@@ -10,6 +10,8 @@
 #import "HXHttpResInterFace.h"
 #import "AFNetworking.h"
 
+
+
 static NSTimeInterval kCTNetworkingTimeoutSeconds = 20.0f;
 
 @interface HXHttpResInterFace ()
@@ -24,6 +26,7 @@ static NSTimeInterval kCTNetworkingTimeoutSeconds = 20.0f;
 
 
 @implementation HXHttpResInterFace
+
 
 + (instancetype)shareInterface {
     static HXHttpResInterFace *shareInterface = nil;
@@ -69,7 +72,6 @@ static NSTimeInterval kCTNetworkingTimeoutSeconds = 20.0f;
     if (!_sessionManager) {
         _sessionManager = [AFHTTPSessionManager manager];
         _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//        _sessionManager.securityPolicy
     }
     return _sessionManager;
 }
@@ -78,7 +80,7 @@ static NSTimeInterval kCTNetworkingTimeoutSeconds = 20.0f;
     if (_httpRequestSerializer == nil) {
         _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
         _httpRequestSerializer.timeoutInterval = kCTNetworkingTimeoutSeconds;
-        _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
+//        _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
     }
     return _httpRequestSerializer;
 }
@@ -86,42 +88,53 @@ static NSTimeInterval kCTNetworkingTimeoutSeconds = 20.0f;
 
 - (NSUInteger)httpGETWithURLStr:(NSString *)URLStr params:(NSDictionary *)params resultCallBackSuccess:(resultSuccess)resultSuccess resultCallBackFail:(resultFail)resultFail {
     
+    __block NSURLSessionDataTask *dataTask = nil;
     NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"GET" URLString:URLStr parameters:params error:NULL];
-    return [self httpRequestWith:request Success:resultSuccess Fail:resultFail];
+    
+    dataTask = [self.sessionManager GET:URLStr parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSNumber *taskID = @(dataTask.taskIdentifier);
+        [self.taskRecordDic removeObjectForKey:taskID];
+        HXResponsResult *sResult = [HXResponsResult successResultWithTaskID:taskID
+                                                                    request:request
+                                                             responseObject:responseObject];
+        resultSuccess? resultSuccess(sResult) : nil;
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSNumber *taskID = @(dataTask.taskIdentifier);
+        [self.taskRecordDic removeObjectForKey:taskID];
+        HXResponsResult *errorResult = [HXResponsResult errorResultWithTaskID:taskID
+                                                                      request:request
+                                                                        error:error];
+        resultFail? resultFail(errorResult) : nil;
+    }];
+    
+    [self.taskRecordDic setObject:dataTask forKey:@(dataTask.taskIdentifier)];
+    [dataTask resume];
+    return dataTask.taskIdentifier;
+    
 }
 
 - (NSUInteger)httpPOSTWithURLStr:(NSString *)URLStr params:(NSDictionary *)params resultCallBackSuccess:(resultSuccess)resultSuccess resultCallBackFail:(resultFail)resultFail {
-    
-    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"POST" URLString:URLStr parameters:params error:NULL];
-#warning - HTTPBody是否有必要赋值有待于考证。
-    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:NULL];
-#warning - NSMutableURLRequest分类增加 requestParams属性有什么作用有待于考证
-    // request.requestParams = requestParams;
-    return [self httpRequestWith:request Success:resultSuccess Fail:resultFail];
-}
 
-
-- (NSUInteger)httpRequestWith:(NSURLRequest *)request Success:(resultSuccess)resultSuccess Fail:(resultFail)resultFail {
-    
     __block NSURLSessionDataTask *dataTask = nil;
-    dataTask = [self.sessionManager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-                            
+    NSMutableURLRequest *request = [self.httpRequestSerializer requestWithMethod:@"GET" URLString:URLStr parameters:params error:NULL];
+    
+    dataTask = [self.sessionManager POST:URLStr parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSNumber *taskID = @(dataTask.taskIdentifier);
         [self.taskRecordDic removeObjectForKey:taskID];
+        HXResponsResult *sResult = [HXResponsResult successResultWithTaskID:taskID
+                                                                    request:request
+                                                             responseObject:responseObject];
+        resultSuccess? resultSuccess(sResult) : nil;
         
-        if (error) {
-            HXResponsResult *errorResult = [HXResponsResult errorResultWithTaskID:taskID
-                                                                          request:request
-                                                                            error:error];
-            resultFail? resultFail(errorResult) : nil;
-        } else {
-            HXResponsResult *sResult = [HXResponsResult successResultWithTaskID:taskID
-                                                                        request:request
-                                                                 responseObject:responseObject];
-            resultSuccess? resultSuccess(sResult) : nil;
-        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSNumber *taskID = @(dataTask.taskIdentifier);
+        [self.taskRecordDic removeObjectForKey:taskID];
+        HXResponsResult *errorResult = [HXResponsResult errorResultWithTaskID:taskID
+                                                                      request:request
+                                                                        error:error];
+        resultFail? resultFail(errorResult) : nil;
     }];
-    
     [self.taskRecordDic setObject:dataTask forKey:@(dataTask.taskIdentifier)];
     [dataTask resume];
     return dataTask.taskIdentifier;
